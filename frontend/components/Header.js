@@ -12,8 +12,9 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText,
 } from "reactstrap";
+import Link from "next/link";
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,19 +24,32 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar color="light" light>
-        <NavbarBrand href="/">{APP_NAME}</NavbarBrand>
+      <Navbar color="light" light expand="md">
+        <NavbarBrand className="font-weight-bold" tag={Link} href="/">
+          {APP_NAME}
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="me-auto" navbar>
+          <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
+              <NavLink tag={Link} href="/Signup">
+                Signup
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink tag={Link} href="/Signin">
+                Signin
+              </NavLink>
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Options
+              </DropdownToggle>
+              <DropdownMenu end>
+                <DropdownItem>Option 1</DropdownItem>
+                <DropdownItem>Option 2</DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
           </Nav>
         </Collapse>
       </Navbar>

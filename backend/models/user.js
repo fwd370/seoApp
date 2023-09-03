@@ -25,6 +25,12 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
     },
+    age: {
+      type: Number,
+      required: true,
+      min: 14,
+      max: 200,
+    },
     profile: {
       type: String,
       required: true,
@@ -50,7 +56,7 @@ const userSchema = new mongoose.Schema(
       default: "",
     },
   },
-  { timestamp: true }
+  { timestamp: true, collection: "users" }
 );
 
 userSchema

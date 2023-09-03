@@ -35,6 +35,6 @@ app.listen(port, () => {
 
 //db
 mongoose
-  .connect(process.env.DATABASE_LOCAL) // Mongoose 6.0 onwards assumes useNewUrlParser, useCreateIndex are true, useFindAndModify is false.
+  .connect(process.env.DATABASE_CLOUD, {}) // Mongoose 6.0 onwards assumes useNewUrlParser, useCreateIndex are true, useFindAndModify is false.
   .then(() => console.log("DB connected"))
   .catch((err) => console.log("DB Error => ", err));
